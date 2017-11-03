@@ -3,19 +3,14 @@
     <head>  
         <meta charset="utf-8" />  
         <title>bootstrap案例</title>  
-        <!--用百度的静态资源库的cdn安装bootstrap环境-->  
-        <!-- Bootstrap 核心 CSS 文件 -->  
-        <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">  
-        <!--font-awesome 核心我CSS 文件-->  
-        <link href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">  
-        <!-- 在bootstrap.min.js 之前引入 -->  
-        <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>  
-        <!-- Bootstrap 核心 JavaScript 文件 -->  
-        <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>  
-        <!--jquery.validate-->  
-        <script type="text/javascript" src="js/jquery.validate.min.js" ></script>  
-        <script type="text/javascript" src="js/message.js" ></script>  
-        <style type="text/css">  
+				 
+				<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+				<script src="js/jquery3.2.1.js"></script>
+				<!-- 包括所有已编译的插件 -->
+				<script src="js/bootstrap.js"></script>
+		        <script type="text/javascript" src="js/jquery.validate.min.js" ></script>  
+		        <script type="text/javascript" src="js/message.js" ></script>  
+		        <style type="text/css">  
             body{background: url(img/4.jpg) no-repeat;background-size:cover;font-size: 16px;}  
             .form{background: rgba(255,255,255,0.2);width:400px;margin:100px auto;}  
             #login_form{display: block;}  
