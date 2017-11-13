@@ -3,10 +3,10 @@
     <head>  
         <meta charset="utf-8" />  
         <title>emmmm Financial Manager?</title>  
-		<script src="js/jquery3.2.1.js"></script>
-		<script src="js/bootstrap.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/login.css">
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head> 
 	<body> 
 	 <div class="container">

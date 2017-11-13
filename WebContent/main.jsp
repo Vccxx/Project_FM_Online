@@ -4,21 +4,21 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Welcome!</title>  
-	<script src="js/jquery3.2.1.js"></script>
-	<script src="js/bootstrap.js"></script>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 </head>
 <body>
 	<div class="container">
 		<h1>
-		  <a href="" class="typewrite" data-period="2000" data-type='[ "Hi, Im VipulM.", "I am Creative.", "I Love Design.", "I Love to Develop." ]'>
+		  <a href="" class="typewrite" data-period="2000" data-type='[ "Welcome to Online Finacial Manager", "Any Advice From You Is Important for us", "Thanks and Enjoy!" ]'>
 		    <span class="wrap"></span>
 		  </a>
 		</h1>
             <div class="col-sm-12">
-                <div class="bs-calltoaction bs-calltoaction-primary">
+                <div class="bs-calltoaction bs-calltoaction-warning">
                     <div class="row">
                         <div class="col-md-9 cta-contents">
                             <h1 class="cta-title">生成财务报表</h1>
@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-primary">Go for It!</a>
+                            <a href="#" class="btn btn-lg btn-block btn-warning">进入</a>
                         </div>
                      </div>
                 </div>
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-info">Go for It!</a>
+                            <a href="#" class="btn btn-lg btn-block btn-info">进入</a>
                         </div>
                      </div>
                 </div>
@@ -60,7 +60,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-success">Go for It!</a>
+                            <a href="#" class="btn btn-lg btn-block btn-success">进入</a>
                         </div>
                      </div>
                 </div>
@@ -68,15 +68,14 @@
                 <div class="bs-calltoaction bs-calltoaction-warning">
                     <div class="row">
                         <div class="col-md-9 cta-contents">
-                            <h1 class="cta-title">Its a Call To Action</h1>
+                            <h1 class="cta-title">员工工资发放和参数调整</h1>
                             <div class="cta-desc">
-                                <p>Describe the action here.</p>
-                                <p>Describe the action here.</p>
-                                <p>Describe the action here.</p>
+                                <p>这里可以设置你厂员工的工资参数</p>
+                                <p>包括税率，工资发放时间等</p>
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-warning">Go for It!</a>
+                            <a href="#" class="btn btn-lg btn-block btn-warning">进入</a>
                         </div>
                      </div>
                 </div>
