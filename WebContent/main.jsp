@@ -7,7 +7,7 @@
 	<script src="js/jquery3.2.1.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/index.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 </head>
 <body>
