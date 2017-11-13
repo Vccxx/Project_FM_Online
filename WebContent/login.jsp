@@ -2,90 +2,60 @@
 <html>  
     <head>  
         <meta charset="utf-8" />  
-        <title>bootstrap案例</title>  
-				 
-				<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-				<script src="js/jquery3.2.1.js"></script>
-				<!-- 包括所有已编译的插件 -->
-				<script src="js/bootstrap.js"></script>
-		        <script type="text/javascript" src="js/jquery.validate.min.js" ></script>  
-		        <script type="text/javascript" src="js/message.js" ></script>  
-		        <style type="text/css">  
-            body{background: url(img/4.jpg) no-repeat;background-size:cover;font-size: 16px;}  
-            .form{background: rgba(255,255,255,0.2);width:400px;margin:100px auto;}  
-            #login_form{display: block;}  
-            #register_form{display: none;}  
-            .fa{display: inline-block;top: 27px;left: 6px;position: relative;color: #ccc;}  
-            input[type="text"],input[type="password"]{padding-left:26px;}  
-            .checkbox{padding-left:21px;}  
-        </style>  
-    </head>  
-    <body>  
-        <!--  
-            基础知识：  
-            网格系统:通过行和列布局  
-            行必须放在container内  
-            手机用col-xs-*  
-            平板用col-sm-*  
-            笔记本或普通台式电脑用col-md-*  
-            大型设备台式电脑用col-lg-*  
-            为了兼容多个设备，可以用多个col-*-*来控制；  
-        -->  
-    <div class="container">  
-        <div class="form row">  
-            <form class="form-horizontal col-sm-offset-3 col-md-offset-3" id="login_form">  
-                <h3 class="form-title">Login to your account</h3>  
-                <div class="col-sm-9 col-md-9">  
-                    <div class="form-group">  
-                        <i class="fa fa-user fa-lg"></i>  
-                        <input class="form-control required" type="text" placeholder="Username" name="username" autofocus="autofocus" maxlength="20"/>  
-                    </div>  
-                    <div class="form-group">  
-                            <i class="fa fa-lock fa-lg"></i>  
-                            <input class="form-control required" type="password" placeholder="Password" name="password" maxlength="8"/>  
-                    </div>  
-                    <div class="form-group">  
-                        <label class="checkbox">  
-                            <input type="checkbox" name="remember" value="1"/> Remember me  
-                        </label>  
-                        <hr />  
-                        <a href="javascript:;" id="register_btn" class="">Create an account</a>  
-                    </div>  
-                    <div class="form-group">  
-                        <input type="submit" class="btn btn-success pull-right" value="Login "/>     
-                    </div>  
-                </div>  
-            </form>  
-        </div>  
-  
-        <div class="form row">  
-            <form class="form-horizontal col-sm-offset-3 col-md-offset-3" id="register_form">  
-                <h3 class="form-title">Login to your account</h3>  
-                <div class="col-sm-9 col-md-9">  
-                    <div class="form-group">  
-                        <i class="fa fa-user fa-lg"></i>  
-                        <input class="form-control required" type="text" placeholder="Username" name="username" autofocus="autofocus"/>  
-                    </div>  
-                    <div class="form-group">  
-                            <i class="fa fa-lock fa-lg"></i>  
-                            <input class="form-control required" type="password" placeholder="Password" id="register_password" name="password"/>  
-                    </div>  
-                    <div class="form-group">  
-                            <i class="fa fa-check fa-lg"></i>  
-                            <input class="form-control required" type="password" placeholder="Re-type Your Password" name="rpassword"/>  
-                    </div>  
-                    <div class="form-group">  
-                            <i class="fa fa-envelope fa-lg"></i>  
-                            <input class="form-control eamil" type="text" placeholder="Email" name="email"/>  
-                    </div>  
-                    <div class="form-group">  
-                        <input type="submit" class="btn btn-success pull-right" value="Sign Up "/>  
-                        <input type="submit" class="btn btn-info pull-left" id="back_btn" value="Back"/>  
-                    </div>  
-                </div>  
-            </form>  
-        </div>  
-        </div>  
-    <script type="text/javascript" src="js/main.js" ></script>  
+        <title>emmmm Financial Manager?</title>  
+		<script src="js/jquery3.2.1.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/login.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	</head> 
+	<body> 
+	 <div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-7">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-lock"></span> Login</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">
+                            Email</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label">
+                            Password</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"/>
+                                    Remember me
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group last">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" class="btn btn-success btn-sm">
+                                Sign in</button>
+                                 <button type="reset" class="btn btn-default btn-sm">
+                                Reset</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    Not Registred? <a href="http://www.jquery2dotnet.com">Register here</a></div>
+            </div>
+        </div>
+    </div>
+</div>
     </body>  
 </html>
