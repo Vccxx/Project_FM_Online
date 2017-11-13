@@ -6,7 +6,7 @@
     <title>Welcome!</title>  
 	<script src="js/jquery3.2.1.js"></script>
 	<script src="js/bootstrap.js"></script>
-	<script src="js/index.js"></script>
+	<script src="js/main.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 </head>
@@ -21,11 +21,12 @@
                 <div class="bs-calltoaction bs-calltoaction-primary">
                     <div class="row">
                         <div class="col-md-9 cta-contents">
-                            <h1 class="cta-title">Its a Call To Action</h1>
+                            <h1 class="cta-title">生成财务报表</h1>
                             <div class="cta-desc">
-                                <p>Describe the action here.</p>
-                                <p>Describe the action here.</p>
-                                <p>Describe the action here.</p>
+                                <p>日报表、月报表、年报表</p>
+                                <p>现金流量表</p>
+                                <p>利润表</p>
+                                <p>资产负债表</p>
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
@@ -37,11 +38,9 @@
                 <div class="bs-calltoaction bs-calltoaction-info">
                     <div class="row">
                         <div class="col-md-9 cta-contents">
-                            <h1 class="cta-title">Its a Call To Action</h1>
+                            <h1 class="cta-title">查看财务变更</h1>
                             <div class="cta-desc">
-                                <p>Describe the action here.</p>
-                                <p>Describe the action here.</p>
-                                <p>Describe the action here.</p>
+                                <p>任何财务更改都将在这里被记录</p>
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
@@ -53,11 +52,11 @@
                 <div class="bs-calltoaction bs-calltoaction-success">
                     <div class="row">
                         <div class="col-md-9 cta-contents">
-                            <h1 class="cta-title">Its a Call To Action</h1>
+                            <h1 class="cta-title">发票生成和打印</h1>
                             <div class="cta-desc">
-                                <p>Describe the action here.</p>
-                                <p>Describe the action here.</p>
-                                <p>Describe the action here.</p>
+                                <p>1.填写发票信息</p>
+                                <p>2.生成发票</p>
+                                <p>3.打印发票</p>
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
