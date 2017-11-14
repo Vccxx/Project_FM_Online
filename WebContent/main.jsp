@@ -13,7 +13,7 @@
 <body>
 	<div class="container">
 		<h1>
-		  <a href="" class="typewrite" data-period="2000" data-type='[ "Welcome to Online Finacial Manager", "Any Advice From You Is Important for us", "Thanks and Enjoy!" ]'>
+		  <a href="" class="typewrite" data-period="2000" data-type='[ "Hi,<%=request.getAttribute("id")%>","Welcome to Online Finacial Management System", "Any Advice From You Is Important for us", "Thanks and Enjoy!" ]'>
 		    <span class="wrap"></span>
 		  </a>
 		</h1>
@@ -23,6 +23,7 @@
                         <div class="col-md-9 cta-contents">
                             <h1 class="cta-title">生成财务报表</h1>
                             <div class="cta-desc">
+                             	<p>你可以在此处提交和生成财务报表，包括：</p>
                                 <p>日报表、月报表、年报表</p>
                                 <p>现金流量表</p>
                                 <p>利润表</p>
@@ -30,7 +31,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-warning">进入</a>
+                            <a href="#" class="btn btn-lg btn-block btn-warning">使用此功能</a>
                         </div>
                      </div>
                 </div>
@@ -44,7 +45,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-info">进入</a>
+                            <a href="#" class="btn btn-lg btn-block btn-info">使用此功能</a>
                         </div>
                      </div>
                 </div>
@@ -60,7 +61,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-success">进入</a>
+                            <a href="#" class="btn btn-lg btn-block btn-success">使用此功能</a>
                         </div>
                      </div>
                 </div>
@@ -75,7 +76,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-warning">进入</a>
+                            <a href="#" class="btn btn-lg btn-block btn-warning">使用此功能</a>
                         </div>
                      </div>
                 </div>
@@ -91,7 +92,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-danger">Go for It!</a>
+                            <a href="#" class="btn btn-lg btn-block btn-danger">使用此功能</a>
                         </div>
                      </div>
                 </div>

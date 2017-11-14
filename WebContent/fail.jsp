@@ -16,12 +16,12 @@
         <div class="col-md-6 col-md-offset-3">
             <div class="testimonials">
             	<div class="active item">
-                  <blockquote><p>emmmmm...Something went wrong...</p></blockquote>
+                  <blockquote><p><%=request.getAttribute("error")%></p></blockquote>
                   <div class="carousel-info">
                     <img alt="" src="img/failLogo.jpg" class="pull-left">
                     <div class="pull-left">
-                      <span class="testimonials-name">miao?</span>
-                      <span class="testimonials-post">miao?miao?</span>
+                      <span class="testimonials-name">emmm...</span>
+                      <span class="testimonials-post">出错了</span>
                     </div>
                   </div>
                 </div>

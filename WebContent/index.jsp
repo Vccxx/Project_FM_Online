@@ -15,21 +15,21 @@
         <div class="col-md-4 col-md-offset-7">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span class="glyphicon glyphicon-lock"></span> Login</div>
+                    <span class="glyphicon glyphicon-lock"></span> Login Panel</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" role="form" action="Login">
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-3 control-label">
-                            Email</label>
+                            Account</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="Account" name="Account" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-3 control-label">
                             Password</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+                            <input type="password" class="form-control" id="inputPassword3" name="PassWord" placeholder="Password" required>
                         </div>
                     </div>
                     <div class="form-group">

@@ -4,9 +4,11 @@
 <struts>
     <include file="struts-default.xml"/>
     <package name="lab2" extends="struts-default">
-        <action name="Search" class="lab2.Index" method="execute">
-            <result name="SUCCESS">/result.jsp</result>
-            <result name="FAILED">/fail.jsp</result>
+        <action name="Login" class="lab2.Index" method="check">
+            <result name="id=0">main.jsp</result>
+            <result name="id=1">main.jsp</result>
+            <result name="id=2">main.jsp</result>
+            <result name="error">fail.jsp</result>
         </action>
     </package>
 </struts>
