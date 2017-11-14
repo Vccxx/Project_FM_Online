@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,16 +14,18 @@
 <body>
 	<div class="container">
 		<h1>
-		  <a href="" class="typewrite" data-period="2000" data-type='[ "Welcome to Online Finacial Manager", "Any Advice From You Is Important for us", "Thanks and Enjoy!" ]'>
+		  <a href="" class="typewrite" data-period="2000" data-type='[ "Hi,<%=request.getAttribute("id")%>","Welcome to Online Finacial Management System", "Any Advice From You Is Important for us", "Thanks and Enjoy!" ]'>
 		    <span class="wrap"></span>
 		  </a>
 		</h1>
             <div class="col-sm-12">
+            <c:if test='<%=request.getAttribute("userid").equals("1")%>'>
                 <div class="bs-calltoaction bs-calltoaction-warning">
                     <div class="row">
                         <div class="col-md-9 cta-contents">
                             <h1 class="cta-title">生成财务报表</h1>
                             <div class="cta-desc">
+                             	<p>你可以在此处提交和生成财务报表，包括：</p>
                                 <p>日报表、月报表、年报表</p>
                                 <p>现金流量表</p>
                                 <p>利润表</p>
@@ -30,11 +33,12 @@
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-warning">进入</a>
+                            <a href="#" class="btn btn-lg btn-block btn-warning">使用此功能</a>
                         </div>
                      </div>
                 </div>
-
+			</c:if>
+			<c:if test='<%=request.getAttribute("userid").equals("2") || request.getAttribute("id").equals("3")%>'>
                 <div class="bs-calltoaction bs-calltoaction-info">
                     <div class="row">
                         <div class="col-md-9 cta-contents">
@@ -44,11 +48,12 @@
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-info">进入</a>
+                            <a href="#" class="btn btn-lg btn-block btn-info">使用此功能</a>
                         </div>
                      </div>
                 </div>
-
+			</c:if>
+			<c:if test='<%=request.getAttribute("userid").equals("1")%>'>
                 <div class="bs-calltoaction bs-calltoaction-success">
                     <div class="row">
                         <div class="col-md-9 cta-contents">
@@ -60,11 +65,12 @@
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-success">进入</a>
+                            <a href="#" class="btn btn-lg btn-block btn-success">使用此功能</a>
                         </div>
                      </div>
                 </div>
-
+			</c:if>	
+			<c:if test='<%=request.getAttribute("userid").equals("1")%>'>
                 <div class="bs-calltoaction bs-calltoaction-warning">
                     <div class="row">
                         <div class="col-md-9 cta-contents">
@@ -75,27 +81,28 @@
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-warning">进入</a>
+                            <a href="#" class="btn btn-lg btn-block btn-warning">使用此功能</a>
                         </div>
                      </div>
                 </div>
-
+			</c:if>	
+			<c:if test='<%=request.getAttribute("userid").equals("0")%>'>
                 <div class="bs-calltoaction bs-calltoaction-danger">
                     <div class="row">
                         <div class="col-md-9 cta-contents">
-                            <h1 class="cta-title">Its a Call To Action</h1>
+                            <h1 class="cta-title">账户管理</h1>
                             <div class="cta-desc">
-                                <p>Describe the action here.</p>
-                                <p>Describe the action here.</p>
-                                <p>Describe the action here.</p>
+                                <p>这是管理员专用页面</p>
+                                <p> 用于管理各账户权限</p>
+                                <p>包括增加、修改、删除用户以及修改权限</p>
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-danger">Go for It!</a>
+                            <a href="#" class="btn btn-lg btn-block btn-danger">使用此功能</a>
                         </div>
                      </div>
                 </div>
-
+			</c:if>	
             </div>
         </div>
     </body>
