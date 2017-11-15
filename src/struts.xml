@@ -10,5 +10,8 @@
             <result name="id=2">main.jsp</result>
             <result name="error">fail.jsp</result>
         </action>
+        <action name="FMInp" class="lab2.FMInp" method="record">
+        	<result name="error">fail.jsp</result>
+        </action>
     </package>
 </struts>

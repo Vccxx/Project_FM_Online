@@ -33,12 +33,29 @@
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-warning">使用此功能</a>
+                            <a href="financial_statements.jsp" class="btn btn-lg btn-block btn-warning">使用此功能</a>
                         </div>
                      </div>
                 </div>
 			</c:if>
-			<c:if test='<%=request.getAttribute("userid").equals("2") || request.getAttribute("id").equals("3")%>'>
+			<c:if test='<%=request.getAttribute("userid").equals("1")%>'>
+                <div class="bs-calltoaction bs-calltoaction-info">
+                    <div class="row">
+                        <div class="col-md-9 cta-contents">
+                            <h1 class="cta-title">输入会计凭证</h1>
+                            <div class="cta-desc">
+                             	<p>此功能的输入作为生成各项财务报表</p>
+                                <p>以及统计和计算收支情况的重要依据</p>
+                                <p>如要定制凭证内容，请联系系统管理员</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 cta-button">
+                            <a href="FMInp.jsp" class="btn btn-lg btn-block btn-info">使用此功能</a>
+                        </div>
+                     </div>
+                </div>
+			</c:if>
+			<c:if test='<%=request.getAttribute("userid").equals("2") || request.getAttribute("userid").equals("3")%>'>
                 <div class="bs-calltoaction bs-calltoaction-info">
                     <div class="row">
                         <div class="col-md-9 cta-contents">
@@ -48,7 +65,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-info">使用此功能</a>
+                            <a href="Financial_Changes.jsp?username=<%=request.getAttribute("id")%>" class="btn btn-lg btn-block btn-info">使用此功能</a>
                         </div>
                      </div>
                 </div>
@@ -59,6 +76,7 @@
                         <div class="col-md-9 cta-contents">
                             <h1 class="cta-title">发票生成和打印</h1>
                             <div class="cta-desc">
+                            	<p>按以下步骤生成和打印发票：</p>
                                 <p>1.填写发票信息</p>
                                 <p>2.生成发票</p>
                                 <p>3.打印发票</p>
@@ -74,7 +92,7 @@
                 <div class="bs-calltoaction bs-calltoaction-warning">
                     <div class="row">
                         <div class="col-md-9 cta-contents">
-                            <h1 class="cta-title">员工工资发放和参数调整</h1>
+                            <h1 class="cta-title">员工工资参数调整</h1>
                             <div class="cta-desc">
                                 <p>这里可以设置你厂员工的工资参数</p>
                                 <p>包括税率，工资发放时间等</p>

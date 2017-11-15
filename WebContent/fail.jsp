@@ -11,17 +11,19 @@
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<% response.setHeader("Refresh","3;URL=index.jsp");%>
 <div class="container content">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="testimonials">
             	<div class="active item">
-                  <blockquote><p>emmmmm...Something went wrong...</p></blockquote>
+                  <blockquote><p><%=request.getAttribute("error")%></p></blockquote>
                   <div class="carousel-info">
                     <img alt="" src="img/failLogo.jpg" class="pull-left">
                     <div class="pull-left">
-                      <span class="testimonials-name">miao?</span>
-                      <span class="testimonials-post">miao?miao?</span>
+                      <span class="testimonials-name">emmm...</span>
+                      <span class="testimonials-post">出错了</span>
+                      <strong>3 秒后返回首页</strong>
                     </div>
                   </div>
                 </div>
@@ -29,13 +31,5 @@
         </div>
     </div>
 </div>
-
-<br>
-<br>
-<center>
-<strong>Powered by <a href="http://j.mp/metronictheme" target="_blank">HIT-1503201-jyc</a></strong>
-</center>
-<br>
-<br>
 </body>
 </html>

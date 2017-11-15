@@ -5,8 +5,8 @@
         <title>emmmm Financial Manager?</title>  
 		<link rel="stylesheet" type="text/css" href="css/login.css">
 		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head> 
 	<body> 
 	 <div class="container">
@@ -22,7 +22,7 @@
                         <label for="inputEmail3" class="col-sm-3 control-label">
                             Account</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="Account" name="Account" required>
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="Account" name="Account" required>
                         </div>
                     </div>
                     <div class="form-group">
