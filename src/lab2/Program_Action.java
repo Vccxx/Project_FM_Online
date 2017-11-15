@@ -7,7 +7,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Program_Action extends ActionSupport{
+public class Program_Action extends ActionSupport
+{
 	private boolean errorFlag = false;
 	private String userName;
 	private String passWord;
@@ -36,6 +37,10 @@ public class Program_Action extends ActionSupport{
 	  {
 	      e.printStackTrace();
 	  }
-	  
+	}
+	public String Financial_Changes(){
+	  int ID;
+	  String Operator,Details,Date,Type="";
+	  String GetInformation = "select ID,Operator,Details,Date,Type from "
 	}
 }

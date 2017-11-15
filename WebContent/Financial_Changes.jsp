@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import= "java.util.Collections" %>
+<%@page import= "java.sql.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,19 +10,25 @@
 	<link rel="stylesheet" type="text/css" href="css/NewTable.css">
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <style type="text/css">
+	body{
+		background-image:url(timg.jpg);
+		background-size:100% 100%;
+		}
+	</style>
 <title>Insert title here</title>
 </head>
 
-
-
 <body>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+
+
 
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span12">
 			<p>
-				<font size="10">你好 xx 经理</font>
+				<font size="10">你好 xx 经理<font size="6">————请进行财务变更记录审查</font></font>
 			</p>
 		</div>
 	</div>
@@ -29,9 +37,7 @@
 
 <div class="container">
     <div class="row">
-    
     <p></p>
-    <h1>请进行记录财务变更</h1>
     <p></p><p></p>
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default panel-table">
@@ -51,56 +57,61 @@
                     <tr>
                         <!-- <th><em class="fa fa-cog"></em></th> -->
                         <th class="hidden-xs">编号</th>
-
                         <th>操作人姓名</th>
                         <th>操作内容</th>
                         <th>操作时间</th>
                         <th>操作类型(增/删/改/查)</th>
                     </tr> 
-                  </thead>
+                  </thead>      
                   <tbody>
-                          <tr>
-                            <!-- <td align="center"> -->
-                            <!-- <a class="btn btn-default"><em class="fa fa-pencil"></em></a> -->
-                            <!-- <a class="btn btn-danger"><em class="fa fa-trash"></em></a> -->
-                            <td class="hidden-xs">1</td>
-                            <td>Chris</td>
-                            <td>xx部门员工xx工资由xx改为</td>
-                            <td>2017-10-05</td>
-                            <td>改</td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>Tom</td>
-                            <td>将xx员工工资添加到数据库</td>
-                            <td>2017-11-11</td>
-                            <td>增</td>
-                          </tr>
+                      <% 
+					    Connection con;
+					    Class.forName("com.mysql.jdbc.Driver");
+						con = DriverManager.getConnection("jdbc:mysql://localhost:3306/FManager","root","Yuan199694");
+						Statement sql;
+						ResultSet rs;
+						int line=0;
+						int[] typenum = new int[4];
+						String type[] = {"add","delete","change","search"};
+						for(int i=0;i<4;i++)
+						{
+							typenum[i]=0;
+						}
+						try
+						{
+							sql=con.createStatement();
+							rs=sql.executeQuery("SELECT * FROM financial_changes");
+							while(rs.next())
+							{
+								out.print("<tr>");
+								out.print("<td>"+rs.getString("ID")+"</td>");
+								out.print("<td>"+rs.getString("Operator")+"</td>");
+								out.print("<td>"+rs.getString("Details")+"</td>");
+								out.print("<td>"+rs.getString("Date")+"</td>");
+								out.print("<td>"+rs.getString("Type")+"</td>");
+								for(int j=0;j<4;j++)
+								{
+									if(rs.getString("Type").equals(type[j]))
+									{
+										typenum[j]++;
+									}
+								}
+								out.print("</tr>");
+							}
+						}
+						catch(SQLException e1)
+						{
+							out.print(e1.toString());
+						}
+					  %>
+                          
                   </tbody>
                 </table>
-            
-              </div>
-              <div class="panel-footer">
-                <div class="row">
-                  <div class="col col-xs-4">Page 1 of 5
-                  </div>
-                  <div class="col col-xs-8">
-                    <ul class="pagination hidden-xs pull-right">
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                    </ul>
-                    <ul class="pagination visible-xs pull-right">
-                        <li><a href="#">«</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
-                  </div>
-                </div>
               </div>
             </div>
-</div></div></div> 
+		  </div>
+	</div>
+</div> 
 
 <div class="container-fluid">
 	<div class="row-fluid">
@@ -115,19 +126,19 @@
 				<tbody>
 					<tr>
 						<td>增</td>
-						<td>TB - Monthly</td>
+						<% out.print("<td>"+(typenum[0]/(typenum[0]+typenum[1]+typenum[2]+typenum[3]))*100+"%"+"</td>"); %>
 					</tr>
 					<tr class="success">
 						<td>删</td>
-						<td>TB - Monthly</td>
+						<% out.print("<td>"+(typenum[1]/(typenum[0]+typenum[1]+typenum[2]+typenum[3]))*100+"%"+"</td>"); %>
 					</tr>
 					<tr class="error">
 						<td>改</td>
-						<td>TB - Monthly</td>
+						<% out.print("<td>"+(typenum[2]/(typenum[0]+typenum[1]+typenum[2]+typenum[3]))*100+"%"+"</td>"); %>
 					</tr>
 					<tr class="warning">
 						<td>查</td>
-						<td>TB - Monthly</td>
+						<% out.print("<td>"+(typenum[3]/(typenum[0]+typenum[1]+typenum[2]+typenum[3]))*100+"%"+"</td>"); %>
 					</tr>
 				</tbody>
 			</table>
