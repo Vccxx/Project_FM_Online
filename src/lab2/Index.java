@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.security.MessageDigest;
 
 public class Index extends ActionSupport{
 	private boolean errorFlag = false;
@@ -13,6 +14,27 @@ public class Index extends ActionSupport{
 	private String passWord;
 	private String account;
 	private Connection conn = null;
+    public static String getMD5(String message) {  
+        MessageDigest messageDigest = null;  
+        StringBuffer md5StrBuff = new StringBuffer();  
+        try {  
+            messageDigest = MessageDigest.getInstance("MD5");  
+            messageDigest.reset();  
+            messageDigest.update(message.getBytes("UTF-8"));  
+              
+            byte[] byteArray = messageDigest.digest();  
+            for (int i = 0; i < byteArray.length; i++)   
+            {  
+                if (Integer.toHexString(0xFF & byteArray[i]).length() == 1)  
+                    md5StrBuff.append("0").append(Integer.toHexString(0xFF & byteArray[i]));  
+                else  
+                    md5StrBuff.append(Integer.toHexString(0xFF & byteArray[i]));  
+            }  
+        } catch (Exception e) {  
+            throw new RuntimeException();  
+        }  
+        return md5StrBuff.toString().toUpperCase();//字母大写  
+    } 
 	public Index()
 	{
 	  try
@@ -75,12 +97,11 @@ public class Index extends ActionSupport{
 	    	this.errorFlag = true;
 	        return "error";
 	      }
-	      
+
 	      String password = rs.getString("password");
 	      userid = rs.getInt("id");
 	      this.userName = rs.getString("username");
-	      
-	      if(!password.equals(this.passWord)) {
+	      if(!password.equals(getMD5(this.passWord))) {
 	    	this.errorFlag = true;
 	    	ActionContext.getContext().put("error","No such Username or Wrong password");
 	      }

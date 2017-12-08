@@ -3,6 +3,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
@@ -50,16 +51,26 @@ public class FMInp extends ActionSupport{
 	}
 
 	public String record() {
-	    JSONObject json = JSONObject.fromObject(data); 
-	    for(int i = 0;i < json.size();i++) {
-		    String concept=(String)json.get("concept");  
-		    String descript=(String)json.get("descript");  
-		    String amount=(String)json.get("amount"); 
-		    String status=(String)json.get("status");
-		    String date=(String)json.get("date");
-			ActionContext.getContext().put("error",concept+descript+amount+status+date);
-			String sql_insert_FMinps = "insert into  ";
-	    }
+		JSONArray array = JSONArray.fromObject(this.data);
+		if(array.size()>0){
+		  for(int i=0;i<array.size();i++){
+		    JSONObject asset = array.getJSONObject(i);  // 遍历 jsonarray 数组，把每一个对象转成 json 对象
+		    String concept = (String)asset.get("concept");
+		    String description = (String) asset.get("description");
+		    String amount = (String) asset.get("amount");
+		    String status = (String) asset.get("status");
+		    String date = (String) asset.get("date");
+		    String sqlInsert = "INSERT INTO FMInput (concept,description,amount,status,date) VALUES('"+concept+"','"+description+"','"+amount+"','"+status+"','"+date+"')";
+		    System.out.println(sqlInsert);
+		    try {
+				conn.prepareStatement(sqlInsert).execute();
+				return "success";
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				ActionContext.getContext().put("error",e);
+			}
+		  }
+		}
 		return "error";
 	}
 }

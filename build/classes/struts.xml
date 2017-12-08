@@ -8,9 +8,11 @@
             <result name="id=0">main.jsp</result>
             <result name="id=1">main.jsp</result>
             <result name="id=2">main.jsp</result>
+            <result name="id=3">main.jsp</result>
             <result name="error">fail.jsp</result>
         </action>
         <action name="FMInp" class="lab2.FMInp" method="record">
+        	<result name="success">success.jsp</result>
         	<result name="error">fail.jsp</result>
         </action>
     </package>
