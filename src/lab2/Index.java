@@ -101,6 +101,7 @@ public class Index extends ActionSupport{
 	      String password = rs.getString("password");
 	      userid = rs.getInt("id");
 	      this.userName = rs.getString("username");
+	      System.out.println(getMD5(this.passWord));
 	      if(!password.equals(getMD5(this.passWord))) {
 	    	this.errorFlag = true;
 	    	ActionContext.getContext().put("error","No such Username or Wrong password");

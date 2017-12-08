@@ -2,7 +2,7 @@
 <html>  
     <head>  
         <meta charset="utf-8" />  
-        <title>emmmm Financial Manager?</title>  
+        <title>Financial Manager</title>  
 		<link rel="stylesheet" type="text/css" href="css/login.css">
 		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>

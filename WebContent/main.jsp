@@ -63,7 +63,7 @@
                 </div>
               </div>
               <div class="panel-body">
-                <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                <img src="./image/baobiao.jpg" class="coupon-img img-rounded">
                 <div class="col-md-9">
                     <ul class="items">
                         <li>你可以在此处提交和生成财务报表，包括：</li>
@@ -85,6 +85,8 @@
                         <a href="financial_statements.jsp" class="btn btn-link">使用</a>
                     </span>
                 </div>
+                <div class="exp"> &nbsp</div>
+                <div class="exp"> &nbsp </div>
               </div>
             </div>
     	</div>
@@ -101,7 +103,7 @@
                 </div>
               </div>
               <div class="panel-body">
-                <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                <img src="./image/pingzheng.jpg" class="coupon-img img-rounded">
                 <div class="col-md-9">
                     <ul class="items">
                         <li>记录每笔收入</li>
@@ -122,6 +124,8 @@
                         <a href="FMInp.jsp" class="btn btn-link"> 使用</a>
                     </span>
                 </div>
+               <div class="exp"> &nbsp</div>
+                <div class="exp"> &nbsp </div>
               </div>
             </div>
         </div>
@@ -138,7 +142,7 @@
                 </div>
               </div>
               <div class="panel-body">
-                <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                <img src="./image/fapiao.jpg" class="coupon-img img-rounded">
                 <div class="col-md-9">
                     <ul class="items">
                         <li>按以下步骤生成和打印发票：</li>
@@ -159,6 +163,8 @@
                         <a href="#" class="btn btn-link">使用</a>
                     </span>
                 </div>
+               <div class="exp"> &nbsp</div>
+                <div class="exp"> &nbsp </div>
               </div>
             </div>
         </div>
@@ -175,7 +181,7 @@
                 </div>
               </div>
               <div class="panel-body">
-                <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                <img src="./image/canshu.jpg" class="coupon-img img-rounded">
                 <div class="col-md-9">
                     <ul class="items">
                         <li>这里可以设置你厂员工的工资参数</li>
@@ -194,6 +200,8 @@
                         <a href="#" class="btn btn-link">使用</a>
                     </span>
                 </div>
+               <div class="exp"> &nbsp</div>
+                <div class="exp"> &nbsp </div>
               </div>
             </div>
         </div>
@@ -230,6 +238,8 @@
                         <a href="#" class="btn btn-link"> 使用</a>
                     </span>
                 </div>
+               <div class="exp"> &nbsp</div>
+                <div class="exp"> &nbsp </div>
               </div>
             </div>
         </div>
@@ -249,7 +259,7 @@
                 </div>
               </div>
               <div class="panel-body">
-                <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                <img src="./image/root.jpg" class="coupon-img img-rounded">
                 <div class="col-md-9">
                     <ul class="items">
                         <li>这是管理员专用页面</li>
@@ -266,9 +276,11 @@
               <div class="panel-footer">
                 <div class="coupon-code">
                     <span class="print">
-                        <a href="accountCharge.jsp" class="btn btn-link"> 使用</a>
+                        <a href="accountCharge.jsp" class="btn btn-info">使用</a>
                     </span>
                 </div>
+                <div class="exp">&nbsp</div>
+                <div class="exp"> &nbsp </div>
               </div>
             </div>
         </div>
