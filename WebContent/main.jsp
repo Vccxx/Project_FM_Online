@@ -276,7 +276,7 @@
               <div class="panel-footer">
                 <div class="coupon-code">
                     <span class="print">
-                        <a href="accountCharge.jsp" class="btn btn-info">使用</a>
+                        <a href="showAccount.action" class="btn btn-info">使用</a>
                     </span>
                 </div>
                 <div class="exp">&nbsp</div>

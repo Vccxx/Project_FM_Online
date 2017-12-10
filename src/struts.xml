@@ -12,6 +12,14 @@
         	<result name="success">success.jsp</result>
         	<result name="error">fail.jsp</result>
         </action>
+        <action name="showAccount" class="lab2.MainPanel" method="showAccount">
+        	<result name="success">accountCharge.jsp</result>
+        	<result name="error">fail.jsp</result>
+        </action>
+        <action name="deleteAccount" class="lab2.accountCharge" method="deleteAccount">
+        </action>
+        <action name="updateAccount" class="lab2.accountCharge" method="updateAccount">
+        </action>
         <action name="ajaxAdd" class="lab2.accountCharge" method="ajaxAdd" />  
     </package>
 </struts>

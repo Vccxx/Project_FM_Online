@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" import = "lab2.User,java.util.List" contentType="text/html; charset=UTF-8" isELIgnored="false"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -60,6 +61,65 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="update_account_modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel">
+						更改用户信息
+					</h4>
+				</div>
+				<div class="modal-body">
+			<form role="form">
+				<div class="form-group">
+					<label id="user_to_update"></label>
+				</div>
+				<div class="form-group">
+					 <label for="exampleInputPassword1">密码</label><input class="form-control" id="password_update" type="password" required maxlength="50"/>
+				</div>
+				<div class="form-group">
+					 <label for="exampleInputPassword1">真实姓名</label><input class="form-control" id="realname_update" type="text" required maxlength="50"/>
+				</div>
+				<label for="exampleInputPassword1">权限设置</label>
+				<select class="form-control" onchange="selectOnchang(this)">
+						<option>Staff</option>
+						<option>Manager</option>
+						<option>FM</option>
+						<option>root</option>
+				</select>
+			</form>
+				</div>
+				<div class="modal-footer">
+					<input type="hidden" id="id_to_update"  value="">
+					<input type="hidden" id="account_to_update"  value="">
+					 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> 
+					 <button type="button" class="btn btn-primary" onclick="update_confirm(this)">确认更新</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="delete_account_modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel">
+						删除用户
+					</h4>
+					<div class="modal-body">
+						不可逆操作！点击”确认删除“继续。
+				</div>
+				</div>
+				<div class="modal-footer">
+					 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> 
+					 <input type="hidden" id="username_to_delete"  value="">
+					 <input type="hidden" id="id_to_delete"  value="">
+					 <button type="button" class="btn btn-danger" onclick="deleteAccount(this)">确定删除</button>
+				</div>
+			</div>
+		</div>
+	</div>
 <div class="container">
     <div class="row">
     <p></p>
@@ -90,16 +150,22 @@
                     </tr> 
                   </thead>
                   <tbody class="copy">
-                          <tr>
-                            <td align="center">
-                              <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
-                              <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
-                            </td>
-                            <td class="hidden-xs">1</td>
-                            <td>John Doe</td>
-                            <td>johndoe@example.com</td>
-                            <td>emmmm</td>
-                          </tr>
+                        	<%int i = 0; %>
+	                         <c:forEach var="userInfo" items="${userList}">
+	                         <tr id=<%="account_to_delete"+String.valueOf(i)%>>
+	                         <% i++;%>
+								<td align="center">
+	                             <a class="btn btn-default" data-toggle="modal" data-target="#update_account_modal" onclick="user_to_update(this)"><em class="fa fa-pencil" ></em></a>
+	                             <a class="btn btn-danger" data-toggle="modal" data-target="#delete_account_modal" onclick="passUsername(this)"><em class="fa fa-trash"></em></a>
+	                           </td>
+	
+	                           <td class="hidden-xs">${userInfo.realname}</td>
+	                           <td>${userInfo.username}</td>
+	                           <td>${userInfo.password}</td>
+	                           <td>${userInfo.priv}</td>
+	                          </tr>
+	                        </c:forEach>
+                       
                   </tbody>
                 </table>
             
@@ -127,6 +193,7 @@
 
 </div></div></div>
 <script type="text/javascript">
+	var hint = "Modifing the Info of Account: ";
 	var choice;
 	var self = this
 	function selectOnchang(obj){ 
@@ -137,10 +204,13 @@
 		if (choice == undefined){
 			choice = "Staff"
 		}
+		var password = md5(document.getElementById("password_add").value).toUpperCase()
+		var realname = document.getElementById("realname_add").value
+		var username = document.getElementById("username_add").value
 	 var data = {
-			 "password":md5(document.getElementById("password_add").value),
-			 "realname":document.getElementById("realname_add").value,
-			 "username":document.getElementById("username_add").value,
+			 "password":password,
+			 "realname":realname,
+			 "username":username,
 			 "priv":choice
 		}
 	 $.post("ajaxAdd.action",data,function(data,status,xhr){
@@ -149,9 +219,10 @@
 			 toastr.success("添加成功"); 
 			 var htm=$("tbody.copy tr").eq(0).clone();
 			 var node = htm.find("td")
-			 node.eq(1).html(document.getElementById("realname_add").value)
-			 node.eq(2).html(document.getElementById("username_add").value)
-			 node.eq(3).html(document.getElementById("password_add").value)
+			 node.eq(1).html(realname)
+			 node.eq(2).html(username)
+			 node.eq(3).html(password)
+			 node.eq(4).html(choice)
 			 $("tbody.copy tr").eq(-1).after(htm);
 		 }
 		 else{
@@ -159,6 +230,67 @@
 		 }
 	 })
  	}
+	function passUsername(clickObj){
+		var username_slot = document.getElementById("username_to_delete")
+		var id_to_del = document.getElementById("id_to_delete")
+		username_slot.value = $(clickObj).parent().parent().children("td").eq(2).text()
+		id_to_del.value = $(clickObj).parent().parent().attr("id")
+	}
+	function deleteAccount(clickObj){
+		username = $(clickObj).parent().find("input").eq(0).val();
+		id = $(clickObj).parent().find("input").eq(1).val();
+		var data = {
+				"username":username
+		}
+		$.post("deleteAccount.action",data,function(data,status,xhr){
+			if(data == "success"){
+				 $("#delete_account_modal").modal("hide");
+				 toastr.success("删除成功"); 
+				 $("#"+id).empty()
+			 }
+			 else{
+				 $("#delete_account_modal").modal("hide");
+				 toastr.error("删除失败"); 
+			 }
+		})
+	}
+	function user_to_update(clickObj){
+		
+		var account = document.getElementById("user_to_update") 
+		account.innerHTML = hint+$(clickObj).parent().parent().children("td").eq(2).text()
+		var id_to_update = document.getElementById("id_to_update")
+		var account_to_update = document.getElementById("account_to_update") 
+		id_to_update.value =  $(clickObj).parent().parent().attr("id");
+		account_to_update.value = account.innerHTML.substring(hint.length,account.innerHTML.length)
+	}
+	function update_confirm(clickObj){
+		id = $(clickObj).parent().find("input").eq(0).val();
+		account = $(clickObj).parent().find("input").eq(1).val();
+		if (choice == undefined){
+			choice = "Staff"
+		}
+		var realname = document.getElementById("realname_update").value
+		var password = md5(document.getElementById("password_update").value).toUpperCase()
+		var data = {
+				"username":account,
+				"priv": choice,
+				"realname":realname,
+				"password":password
+		}
+		$.post("updateAccount.action",data,function(data,status,xhr){
+			if(data == "success"){
+				 $("#update_account_modal").modal("hide");
+				 toastr.success("更新成功"); 
+				 $("#"+id).find("td").eq(1).text(realname)
+				 $("#"+id).find("td").eq(3).text(password)
+				 $("#"+id).find("td").eq(4).text(choice) 
+			 }
+			 else{
+				 $("#update_account_modal").modal("hide");
+				 toastr.error("更新失败"); 
+			 }
+		})
+	}
 </script>
 </body>
 </html>

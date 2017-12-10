@@ -61,7 +61,6 @@ public class FMInp extends ActionSupport{
 		    String status = (String) asset.get("status");
 		    String date = (String) asset.get("date");
 		    String sqlInsert = "INSERT INTO FMInput (concept,description,amount,status,date) VALUES('"+concept+"','"+description+"','"+amount+"','"+status+"','"+date+"')";
-		    System.out.println(sqlInsert);
 		    try {
 				conn.prepareStatement(sqlInsert).execute();
 				return "success";

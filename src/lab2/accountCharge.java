@@ -5,7 +5,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-
+import java.util.List;
+import java.util.ArrayList;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -13,9 +14,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
+
 public class accountCharge extends ActionSupport{
 	private String username;
 	private String password;
@@ -23,10 +26,10 @@ public class accountCharge extends ActionSupport{
 	private String realname;
 	private boolean errorFlag = false;
 	private Connection conn = null;
+
 	public accountCharge() {
 	  try
 	  {
-		  
 	      Class.forName("com.mysql.jdbc.Driver");
 		  String url = "jdbc:mysql://localhost:3306/FManager";
 		  String username = "root";
@@ -89,10 +92,89 @@ public class accountCharge extends ActionSupport{
 			this.errorFlag = true;
 		}
 	}
+	public String deleteAccount() throws IOException{
+		HttpServletResponse response = ServletActionContext.getResponse();  
+	    PrintWriter writer = response.getWriter();
+	    if(this.errorFlag) {
+			writer.print("error");  
+	        writer.flush();  
+	        writer.close();
+			return null;
+		}
+	    String sql_delete = "delete from user where account=\""+this.username+"\"";
+	    try
+	    {
+	      this.conn.prepareStatement(sql_delete).execute();
+	    }
+	    catch (SQLException e)
+	    {
+			writer.print("error");  
+	        writer.flush();  
+	        writer.close();
+	        return null;
+	    }
+	    catch (Exception e)
+	    {
+			writer.print("error");  
+	        writer.flush();  
+	        writer.close();
+	        return null;
+	    }
+		writer.print("success");  
+        writer.flush();  
+        writer.close();
+        return null;
+	}
+	public String updateAccount() throws IOException {
+		HttpServletResponse response = ServletActionContext.getResponse();  
+	    PrintWriter writer = response.getWriter();
+	    if(this.errorFlag) {
+			writer.print("error");  
+	        writer.flush();  
+	        writer.close();
+			return null;
+		}
+	    String id = "";
+	    if(this.priv.equals("FM")) {
+			id = "1";
+		}
+		else if(this.priv.equals("root")) {
+			id = "0";
+		}
+		else if(this.priv.equals("Manager")) {
+			id = "2";
+		}
+		else if(this.priv.equals("Staff")) {
+			id = "3";
+		}
+	    String sql_update = "UPDATE user set username=\""+this.realname+"\",password=\""+this.password+"\",id=\""+id+"\" where account=\""+this.username+"\"";
+	    System.out.println(sql_update);
+	    try
+	    {
+	      this.conn.prepareStatement(sql_update).execute();
+	    }
+	    catch (SQLException e)
+	    {
+			writer.print("error");  
+	        writer.flush();  
+	        writer.close();
+	        return null;
+	    }
+	    catch (Exception e)
+	    {
+			writer.print("error");  
+	        writer.flush();  
+	        writer.close();
+	        return null;
+	    }
+		writer.print("success");  
+        writer.flush();  
+        writer.close();
+        return null;
+	}
     public String ajaxAdd() throws IOException {
     	HttpServletResponse response = ServletActionContext.getResponse();  
 	    PrintWriter writer = response.getWriter();  
-    	System.out.println("username:"+this.username + "\nrealname:" + this.realname+"\npassword:"+this.password  + "\npriv:" + this.priv);
 		if(this.errorFlag) {
 			writer.print("error");  
 	        writer.flush();  
@@ -115,11 +197,10 @@ public class accountCharge extends ActionSupport{
 		String sql_insert_user = "insert into user (id,username,account,password) VALUE(\""
 								+id+"\",\""+this.realname+"\",\""+this.username + "\",\""
 								+this.password + "\")";
-		System.out.println(sql_insert_user);
+
 		try
 	    {
 	      this.conn.prepareStatement(sql_insert_user).execute();
-	      
 	    }
 	    catch (SQLException e)
 	    {
