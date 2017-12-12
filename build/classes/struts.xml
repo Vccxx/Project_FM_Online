@@ -21,5 +21,10 @@
         <action name="updateAccount" class="lab2.accountCharge" method="updateAccount">
         </action>
         <action name="ajaxAdd" class="lab2.accountCharge" method="ajaxAdd" />  
+        <action name="changeSection" class="lab2.sectionManage" method="changeSection" /> 
+        <action name="showSectionInfo" class="lab2.MainPanel" method="showSectionInfo"> 
+        	    <result name="success">sectionInfo.jsp</result>
+        		<result name="error">fail.jsp</result>
+        </action>
     </package>
 </struts>

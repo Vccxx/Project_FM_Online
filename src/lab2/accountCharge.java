@@ -129,7 +129,7 @@ public class accountCharge extends ActionSupport{
 		HttpServletResponse response = ServletActionContext.getResponse();  
 	    PrintWriter writer = response.getWriter();
 	    if(this.errorFlag) {
-			writer.print("error");  
+			writer.print("error"); 
 	        writer.flush();  
 	        writer.close();
 			return null;
@@ -148,10 +148,12 @@ public class accountCharge extends ActionSupport{
 			id = "3";
 		}
 	    String sql_update = "UPDATE user set username=\""+this.realname+"\",password=\""+this.password+"\",id=\""+id+"\" where account=\""+this.username+"\"";
+	    String sql_update_detail = "UPDATE userDetial set name=\""+this.realname+"\" where account=\""+this.username+"\"";
 	    System.out.println(sql_update);
 	    try
 	    {
 	      this.conn.prepareStatement(sql_update).execute();
+	      this.conn.prepareStatement(sql_update_detail).execute();
 	    }
 	    catch (SQLException e)
 	    {
@@ -197,10 +199,12 @@ public class accountCharge extends ActionSupport{
 		String sql_insert_user = "insert into user (id,username,account,password) VALUE(\""
 								+id+"\",\""+this.realname+"\",\""+this.username + "\",\""
 								+this.password + "\")";
-
+		String sql_insert_salaryInfo = "insert into userDetial (name,account) VALUE(\""
+				+this.realname+"\",\""+this.username + "\")";
 		try
 	    {
 	      this.conn.prepareStatement(sql_insert_user).execute();
+	      this.conn.prepareStatement(sql_insert_salaryInfo).execute();
 	    }
 	    catch (SQLException e)
 	    {

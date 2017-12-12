@@ -38,6 +38,7 @@
    		<div id="quicknav">
         	<ul>
         		<li><a href="#blue" class="btn btn-primary">查看财务变更</a></li>
+        		<li><a href="#red" class="btn btn-danger">管理部门信息</a></li>
          	</ul>
    		 </div>
        </c:if>
@@ -63,7 +64,7 @@
                 </div>
               </div>
               <div class="panel-body">
-                <img src="./image/baobiao.jpg" class="coupon-img img-rounded">
+                <img src="./image/section.jpg" class="coupon-img img-rounded">
                 <div class="col-md-9">
                     <ul class="items">
                         <li>你可以在此处提交和生成财务报表，包括：</li>
@@ -220,7 +221,7 @@
                 </div>
               </div>
               <div class="panel-body">
-                <img src="http://i.imgur.com/e07tg8R.png" class="coupon-img img-rounded">
+                <img src="image/financeMonitor.jpg" class="coupon-img img-rounded">
                 <div class="col-md-9">
                     <ul class="items">
                         <li>任何财务更改都将在这里被记录</li>
@@ -243,6 +244,44 @@
               </div>
             </div>
         </div>
+    </div>
+<div class="row" id="red">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-danger coupon">
+              <div class="panel-heading" id="head">
+                <div class="panel-title" id="title">
+                    <i class="fa fa-github fa-2x"></i>
+                    <span class="hidden-xs">管理部门信息</span>
+                    <span class="visible-xs">管理部门信息</span>
+                </div>
+              </div>
+              <div class="panel-body">
+                <img src="./image/section.jpg" class="coupon-img img-rounded">
+                <div class="col-md-9">
+                    <ul class="items">
+                        <li>经理可以在此处：</li>
+                        <li>增删部门</li>
+                        <li>部门人员调整</li>
+                        <li>调整各部门资金</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <div class="offer text-danger">
+                        <span class="number">02</span>
+                    </div>
+                </div>
+              </div>
+              <div class="panel-footer">
+                <div class="coupon-code">
+                    <span class="print">
+                        <a href="showSectionInfo.action" class="btn btn-link">使用</a>
+                    </span>
+                </div>
+                <div class="exp"> &nbsp</div>
+                <div class="exp"> &nbsp </div>
+              </div>
+            </div>
+    	</div>
     </div>
      </c:if>
    <c:if test='<%=request.getAttribute("userid").equals("0")%>'>

@@ -150,22 +150,20 @@
                     </tr> 
                   </thead>
                   <tbody class="copy">
-                        	<%int i = 0; %>
-	                         <c:forEach var="userInfo" items="${userList}">
-	                         <tr id=<%="account_to_delete"+String.valueOf(i)%>>
-	                         <% i++;%>
-								<td align="center">
-	                             <a class="btn btn-default" data-toggle="modal" data-target="#update_account_modal" onclick="user_to_update(this)"><em class="fa fa-pencil" ></em></a>
-	                             <a class="btn btn-danger" data-toggle="modal" data-target="#delete_account_modal" onclick="passUsername(this)"><em class="fa fa-trash"></em></a>
-	                           </td>
-	
-	                           <td class="hidden-xs">${userInfo.realname}</td>
-	                           <td>${userInfo.username}</td>
-	                           <td>${userInfo.password}</td>
-	                           <td>${userInfo.priv}</td>
-	                          </tr>
-	                        </c:forEach>
-                       
+                       	<%int i = 0; %>
+                         <c:forEach var="userInfo" items="${userList}">
+                         <tr id=<%="account_to_delete"+String.valueOf(i)%>>
+                         <% i++;%>
+							<td align="center">
+                             <a class="btn btn-default" data-toggle="modal" data-target="#update_account_modal" onclick="user_to_update(this)"><em class="fa fa-pencil" ></em></a>
+                             <a class="btn btn-danger" data-toggle="modal" data-target="#delete_account_modal" onclick="passUsername(this)"><em class="fa fa-trash"></em></a>
+                           </td>
+                           <td class="hidden-xs">${userInfo.realname}</td>
+                           <td>${userInfo.username}</td>
+                           <td>${userInfo.password}</td>
+                           <td>${userInfo.priv}</td>
+                          </tr>
+                        </c:forEach>
                   </tbody>
                 </table>
             
@@ -207,7 +205,7 @@
 		var password = md5(document.getElementById("password_add").value).toUpperCase()
 		var realname = document.getElementById("realname_add").value
 		var username = document.getElementById("username_add").value
-	 var data = {
+	 	var data = {
 			 "password":password,
 			 "realname":realname,
 			 "username":username,
