@@ -29,8 +29,8 @@
         <ul>
             <li><a href="#red" class="btn btn-danger">生成财务报表</a></li>
             <li><a href="#green" class="btn btn-success">输入会计凭证</a></li>
-            <li><a href="#lightblue" class="btn btn-info">发票生成和打印</a></li>
-            <li><a href="#yellow" class="btn btn-warning">员工工资参数调整</a></li>
+            <li><a href="#lightblue" class="btn btn-info">输入营业参数</a></li>
+            <li><a href="#yellow" class="btn btn-warning">财务参数调整</a></li>
         </ul>
     </div>
     </c:if>
@@ -138,18 +138,16 @@
               <div class="panel-heading" id="head">
                 <div class="panel-title" id="title">
                     <i class="fa fa-github fa-2x"></i>
-                    <span class="hidden-xs">发票生成和打印</span>
-                    <span class="visible-xs">发票生成和打印</span>
+                    <span class="hidden-xs">输入营业参数</span>
+                    <span class="visible-xs">输入营业参数</span>
                 </div>
               </div>
               <div class="panel-body">
                 <img src="./image/fapiao.jpg" class="coupon-img img-rounded">
                 <div class="col-md-9">
                     <ul class="items">
-                        <li>按以下步骤生成和打印发票：</li>
-                        <li>1.填写发票信息</li>
-                        <li>2.点击生成发票</li>
-                        <li>3.可选择保存电子版发票或者打印发票</li>
+                        <li>这里可以：</li>
+                        <li>输入无法由现有数据计算的企业营业数据</li>
                     </ul>
                 </div>
                 <div class="col-md-3">
@@ -161,7 +159,7 @@
               <div class="panel-footer">
                 <div class="coupon-code">
                     <span class="print">
-                        <a href="#" class="btn btn-link">使用</a>
+                        <a href="edit_data.jsp" class="btn btn-link">使用</a>
                     </span>
                 </div>
                <div class="exp"> &nbsp</div>
@@ -177,16 +175,17 @@
               <div class="panel-heading" id="head">
                 <div class="panel-title" id="title">
                     <i class="fa fa-github fa-2x"></i>
-                    <span class="hidden-xs">员工工资参数调整</span>
-                    <span class="visible-xs">员工工资参数调整</span>
+                    <span class="hidden-xs">财务参数调整</span>
+                    <span class="visible-xs">财务参数调整</span>
                 </div>
               </div>
               <div class="panel-body">
                 <img src="./image/canshu.jpg" class="coupon-img img-rounded">
                 <div class="col-md-9">
                     <ul class="items">
-                        <li>这里可以设置你厂员工的工资参数</li>
-                        <li>包括税率，工资发放时间等</li>
+                        <li>这里可以：</li>
+                        <li>调整税率</li>
+                        <li>调整部门资金</li>
                     </ul>
                 </div>
                 <div class="col-md-3 text-warning">
@@ -198,7 +197,7 @@
               <div class="panel-footer">
                 <div class="coupon-code">
                     <span class="print">
-                        <a href="#" class="btn btn-link">使用</a>
+                        <a href="showParma.action" class="btn btn-link">使用</a>
                     </span>
                 </div>
                <div class="exp"> &nbsp</div>

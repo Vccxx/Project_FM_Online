@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
-public class sectionManage {
+public class ParmaSet {
+	private String name;
+	private String money;
 	private boolean errorFlag = false;
 	private Connection conn = null;
-	private String name;
-	private String belong;
-	public sectionManage() {
-		try
+	public ParmaSet(){
+		 try
 		  {
 		      Class.forName("com.mysql.jdbc.Driver");
 			  String url = "jdbc:mysql://w.rdc.sae.sina.com.cn:3306/app_fmanager";
@@ -39,13 +39,13 @@ public class sectionManage {
 		      e.printStackTrace();
 		  }
 	}
-	public void setName(String nameChoosed) {
-		this.name = nameChoosed;
+	public void setName(String nameIn) {
+		this.name = nameIn;
 	}
-	public void setBelong(String belongs) {
-		this.belong = belongs;
+	public void setMoney(String valueIn) {
+		this.money = valueIn;
 	}
-	public String changeSection() throws IOException {
+	public String ParmaSet() throws IOException {
 		HttpServletResponse response = ServletActionContext.getResponse();  
 	    PrintWriter writer = response.getWriter();
 	    if(this.errorFlag) {
@@ -54,10 +54,7 @@ public class sectionManage {
 	        writer.close();
 			return null;
 		}
-	    String id = "";
-	    
-	    String sql_update = "UPDATE userDetial set belong=\""+this.belong+"\" where account=\""+this.name+"\"";
-	    System.out.println(sql_update);
+	    String sql_update = "UPDATE sectionInfo set money=\""+this.money+"\" where name=\""+this.name+"\"";
 	    try
 	    {
 	      this.conn.prepareStatement(sql_update).execute();
@@ -71,7 +68,6 @@ public class sectionManage {
 	    }
 	    catch (Exception e)
 	    {
-	    	e.printStackTrace();
 			writer.print("error");  
 	        writer.flush();  
 	        writer.close();
@@ -80,6 +76,6 @@ public class sectionManage {
 		writer.print("success");  
         writer.flush();  
         writer.close();
-        return null;
+		return null;
 	}
 }

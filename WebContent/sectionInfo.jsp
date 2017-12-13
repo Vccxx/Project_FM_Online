@@ -114,6 +114,7 @@
 								</div>
 						</div>
 						<%int k = 2; %>
+						 <%int m = 0; %>
 						<c:forEach var="sectionDetail" items="${sectionInfo}">
 						<div class="tab-pane" id="<%="tab_default_" +String.valueOf(k++) %>">
 							 <div class="method">
@@ -167,7 +168,8 @@
 							            <div class="col-md-4"><div class="header">员工账号</div></div>
 							            <div class="col-md-4"><div class="header">员工评分(关系员工审核工资)</div></div>
 							        </div>
-							        <c:forEach var="userDet1" items="${userDetail}">
+							        <c:set var='count' value="<%=String.valueOf(m)%>" scope="page"/>
+							        <c:forEach var="userDet1" items="${sectionLL[count]}">
 								        <div class="row margin-0">
 								          	<div class="col-md-4">
 								                <div class="cell">
@@ -192,6 +194,7 @@
 								            </div>
 								        </div>
 							       	</c:forEach>
+							       	<% m++; %>
 							    </div>  
 							</div>
 						</c:forEach>

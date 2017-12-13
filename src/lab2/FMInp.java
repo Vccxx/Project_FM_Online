@@ -27,9 +27,9 @@ public class FMInp extends ActionSupport{
 	  try
 	  {
 	      Class.forName("com.mysql.jdbc.Driver");
-		  String url = "jdbc:mysql://localhost:3306/FManager";
-		  String username = "root";
-		  String password = "Vccxx2016";
+		  String url = "jdbc:mysql://w.rdc.sae.sina.com.cn:3306/app_fmanager";
+		  String username = "o25w1j0kwk";
+		  String password = "2mk0mkl22jkz214ikx11w0imy3k5yikmy115xwlw";
 		  this.conn = DriverManager.getConnection(url, username, password);
 		  if (this.conn != null) {
 			  System.out.print("SQL link success");

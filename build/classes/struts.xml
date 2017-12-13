@@ -16,15 +16,41 @@
         	<result name="success">accountCharge.jsp</result>
         	<result name="error">fail.jsp</result>
         </action>
+        <action name="showParma" class="lab2.MainPanel" method="showParma">
+        	<result name="success">paramSet.jsp</result>
+        	<result name="error">fail.jsp</result>
+        </action>
         <action name="deleteAccount" class="lab2.accountCharge" method="deleteAccount">
         </action>
         <action name="updateAccount" class="lab2.accountCharge" method="updateAccount">
         </action>
         <action name="ajaxAdd" class="lab2.accountCharge" method="ajaxAdd" />  
+        <action name="inputParma" class="lab2.InputParma" method="inputParma" />  
         <action name="changeSection" class="lab2.sectionManage" method="changeSection" /> 
         <action name="showSectionInfo" class="lab2.MainPanel" method="showSectionInfo"> 
         	    <result name="success">sectionInfo.jsp</result>
         		<result name="error">fail.jsp</result>
         </action>
+        <action name="ParmaSet" class="lab2.ParmaSet" method="ParmaSet"> 
+        	    <result name="success">sectionInfo.jsp</result>
+        		<result name="error">fail.jsp</result>
+        </action>
+        <action name="createWord" class="lab2.WordAction" method="createWord">
+			<result name="createWordSuccess" type="redirectAction">
+			<param name="actionName">dowloadWord</param>
+			<param name="filePath">${filePath}</param>
+			<param name="fileOnlyName">${fileOnlyName}</param>
+			<param name="fileName">${fileName}</param>
+			<param name="encode">true</param>
+			</result>
+		</action>
+		<action name="dowloadWord" class="lab2.WordAction" method="dowloadWord">
+				<result name="dowloadWord" type="stream">
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="inputName">wordFile</param>
+				<param name="encode">true</param>
+				</result>
+				<result name="error">/error.jsp</result>
+		</action>
     </package>
 </struts>

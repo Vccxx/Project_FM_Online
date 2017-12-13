@@ -25,6 +25,11 @@ $(document).ready(function () {
         prevTab($active);
 
     });
+    
+    $('.material-button-toggle').on("click", function () {
+        $(this).toggleClass('open');
+        $('.option').toggleClass('scale-on');
+    });
 });
 
 function nextTab(elem) {
@@ -33,3 +38,4 @@ function nextTab(elem) {
 function prevTab(elem) {
     $(elem).prev().find('a[data-toggle="tab"]').click();
 }
+
